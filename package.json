@@ -4,10 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-reac†"
+    ]
   },
   "keywords": [],
-  "author": "",
+  "author": "Brooke Kennison",
   "license": "ISC",
   "dependencies": {
     "react": "^16.12.0",

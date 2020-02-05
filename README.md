@@ -1,1 +1,5 @@
-Auto Overlay
+######Auto Overlay
+
+```npm i```
+
+```npm start```
