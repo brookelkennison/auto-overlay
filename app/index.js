@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import UploadedPhoto from './components/UploadedPhoto';
+import AutoInfo from './components/AutoInfo';
 
 class App extends React.Component {
     render () {
         return (
             <div>
-                <UploadedPhoto />
+                <AutoInfo />
             </div>
         )
     }
