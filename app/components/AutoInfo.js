@@ -48,7 +48,7 @@ class InputFeatures extends React.Component {
             feat4: event.target.value
         })
     }
-    // Need to move handleSubmit for generate button
+    /*Need to move handleSubmit for generate button*/
     handleSubmit(event){
         event.preventDefault();
     }
@@ -58,6 +58,7 @@ class InputFeatures extends React.Component {
                 <h3>Add Features</h3>
                 <form onSubmit={this.handleSubmit}>
                     <p>Feature 1:</p>
+                    {/*Why is it {this.feat1} vs {this.state.feat1}?*/}
                     <input type='text' name='feat1' value={this.feat1} onChange={this.handleChange} />
                     <p>Feature 2:</p>
                     <input type='text' name='feat2' value={this.feat2} onChange={this.handleChange} />
