@@ -17,7 +17,12 @@ class UploadPhoto extends React.Component {
             <div>
                 <h3>Upload Image</h3>
                 <form action="#">
-                    <input type="file" name="pic" accept="image/*" />
+                    <input
+                        name="file"
+                        type="file"
+                        class="file-upload"
+                        data-cloudinary-field="image_id"
+                        data-form-data="{ 'transformation': {'crop':'limit','width':935,'height':542}}"/>
                 </form>
             </div>
         )
