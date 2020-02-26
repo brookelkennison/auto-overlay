@@ -37,21 +37,17 @@ class InputFeatures extends React.Component {
             feat3: '',
             feat4: ''
         };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
-    handleChange(event){
+    handleChange = (event, inputField) => {
         this.setState({
-            feat1: event.target.value,
-            feat2: event.target.value,
-            feat3: event.target.value,
-            feat4: event.target.value
+            [inputField]: event.target.value
         })
     }
     /*Need to move handleSubmit for generate button*/
-    handleSubmit(event){
+    handleSubmit = event => {
         event.preventDefault();
     }
+
     render() {
         return (
             <div>
@@ -59,13 +55,13 @@ class InputFeatures extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <p>Feature 1:</p>
                     {/*Why is it {this.feat1} vs {this.state.feat1}?*/}
-                    <input type='text' name='feat1' value={this.feat1} onChange={this.handleChange} />
+                    <input type='text' name='feat1' value={this.state.feat1} onChange={event => this.handleChange(event, 'feat1')} />
                     <p>Feature 2:</p>
-                    <input type='text' name='feat2' value={this.feat2} onChange={this.handleChange} />
+                    <input type='text' name='feat2' value={this.state.feat2} onChange={event => this.handleChange(event, 'feat2')} />
                     <p>Feature 3:</p>
-                    <input type='text' name='feat3' value={this.feat3} onChange={this.handleChange} />
+                    <input type='text' name='feat3' value={this.state.feat3} onChange={event => this.handleChange(event, 'feat3')} />
                     <p>Feature 4:</p>
-                    <input type='text' name='feat4' value={this.feat4} onChange={this.handleChange} />
+                    <input type='text' name='feat4' value={this.state.feat4} onChange={event => this.handleChange(event, 'feat4')} />
                 </form>
             </div>
         )
