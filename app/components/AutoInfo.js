@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Image, Transformation} from 'cloudinary-react';
 
 function NavBar () {
     return (
@@ -12,6 +13,21 @@ function NavBar () {
 }
 
 class UploadPhoto extends React.Component {
+        var myWidget = cloudinary.createUploadWidget({
+                cloudName: 'dvxg1donf',
+                uploadPreset: 'my_preset'
+            },
+            (error, result) =>
+            {
+                if (!error && result && result.event === "success")
+                {
+                    console.log('Done! Here is the image info: ', result.info);
+                }
+            }
+        )
+        document.getElementById("upload_widget").addEventListener("click", function(){
+            myWidget.open();
+        }, false);
     render() {
         return (
             <div>
@@ -20,10 +36,12 @@ class UploadPhoto extends React.Component {
                     <input
                         name="file"
                         type="file"
-                        class="file-upload"
                         data-cloudinary-field="image_id"
                         data-form-data="{ 'transformation': {'crop':'limit','width':935,'height':542}}"/>
                 </form>
+                <button id="upload_widget" className="cloudinary-button">Upload files</button>
+                <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript">
+                </script>
             </div>
         )
     }
@@ -68,6 +86,9 @@ class InputFeatures extends React.Component {
                     <p>Feature 4:</p>
                     <input type='text' name='feat4' value={this.state.feat4} onChange={event => this.handleChange(event, 'feat4')} />
                 </form>
+                <Image cloudName='dvxg1donf' publicId='auto_overlay.png' >
+                    <Transformation width="1024" crop="scale" />
+                </Image>
             </div>
         )
     }
